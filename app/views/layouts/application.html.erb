@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Authentication</title>
+		<%= csrf_meta_tags %>
+		<%= csp_meta_tag %>
+
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+	</head>
+	<body>
+		<div id="container">
+			<div id="user_header">
+			<% if current_user %>
+				Logged in as <%= current_user.email %>.
+				<%# The session_path method expects a user Id here, but it doesn't matter what is passed in in this instance as the controller action we want to call doesn't use the ID parameter %>
+				<%# method: "delete" triggers the destroy action %>
+				<%= link_to "Log Out", logout_path %> |
+				<%= link_to "Home", root_path %>
+			<% else %>
+				<%= link_to "Sign Up", signup_path %> or
+				<%= link_to "Log In", login_path %>
+			<% end %>
+			</div>
+
+			<% flash.each do |name, msg| %>
+				<%= content_tag :div, msg, id: "flash_#{name}"%>
+			<% end %>
+
+    		<%= yield %>
+		</div>
+  	</body>
+</html>
