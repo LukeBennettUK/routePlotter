@@ -1,7 +1,20 @@
 <p><%= link_to "Back to Profile page", profile_page_path %></p>
-<h1>Profile - Edit email</h1>
+<h1>Profile - Edit password</h1>
 
-<%= @user.email %>
-
-<%#= form_for @user , :url => password_reset_path(params[:id]) do |f| %>
-<%# end %>
+<%= form_for @user , :url => edit_email_path(params[:id]) do |f| %>
+    <% if @user.errors.any? %>
+        <div class="error_messages">
+            <h2>Form is invalid</h2>
+            <ul>
+                <% for message in @user.errors.full_messages %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+    </div>
+    <div class="actions"><%= f.submit "Update Email" %></div>
+<% end %>

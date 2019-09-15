@@ -1,6 +1,7 @@
 <h1>Welcome to the edit profile page</h1>
 
 <p>Email address: <%= @user.email %></p>
-<!-- <p><%#= link_to "Edit email address", edit_email_path %></p> -->
 
-<!-- <p><%#= link_to "Edit password", edit_password_path</p> %> -->
+<p><%= link_to "Edit email address", edit_edit_email_path(@user.id) %></p>
+
+<p><%= link_to "Edit password", edit_edit_password_path(@user.id) %></p>
