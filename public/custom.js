@@ -1,16 +1,13 @@
-// export('')
 
-// alert('hey!')
+var routes = {};
 
-
-let routes = {};
-			//let markerStart, markerFinish, polygon;
-			//let markerStart;
-			let markers = {};
-			let polygon;
-			let lastTripId;
-			let specificJourneys = {};
-			const mymap = L.map('mapid').setView([61.4977, 23.76136], 14);
+			//var markerStart, markerFinish, polygon;
+			//var markerStart;
+			var markers = {};
+			var polygon;
+			var lastTripId;
+			var specificJourneys = {};
+			var mymap = L.map('mapid').setView([61.4977, 23.76136], 14);
 
 			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -19,7 +16,7 @@ let routes = {};
 				accessToken: 'pk.eyJ1IjoibHVrZWJlbm5ldHR1ayIsImEiOiJjazBjeXVnZ3IwMmJrM2RyemhyOHVhMmFyIn0.Apvo0nJDVhnd9zyp2L2cgQ'
 			}).addTo(mymap);
 
-			let promise = $.get("http://data.itsfactory.fi/journeys/api/1/journeys");
+			var promise = $.get("http://data.itsfactory.fi/journeys/api/1/journeys");
 
 			promise.then(
 				data => requestSuccess(data),
@@ -27,11 +24,11 @@ let routes = {};
 			);
 
 			function requestSuccess(data) {
-				const journeys = data.body
+				var journeys = data.body
 				var countToTen = 0;
 
 				function getSpecificJourneys() {
-					for (let journey of journeys) {
+					for (var journey of journeys) {
 						var headSignCount = 0;
 						for (var headSign of Object.keys(specificJourneys)) {
 							if (journey.headSign === headSign) {
@@ -50,8 +47,8 @@ let routes = {};
 				}
 
 				function addRouteToggleButtons() {
-					for (let journey in specificJourneys) {
-						$('#routes').append('<p>Start point: ' + specificJourneys[journey].headSign + ' | Days running: ' + specificJourneys[journey].dayTypes + '</p>');
+					for (var journey in specificJourneys) {
+						$('#routes').append('<p class="route-title">Start point: ' + specificJourneys[journey].headSign + ' | Days running: ' + specificJourneys[journey].dayTypes + '</p>');
 						$('#routes').append('<button onclick="toggleRoute(\'' + specificJourneys[journey].gtfs.tripId + '\')">Toggle</button>');
 					}
 				}
@@ -61,15 +58,15 @@ let routes = {};
 			}
 
 			function addRoute(tripId) {
-				for (let journey in specificJourneys) {
+				for (var journey in specificJourneys) {
 					if (specificJourneys[journey].gtfs.tripId === tripId) {
 
-						const route = specificJourneys[journey].calls.map(function (call) {
+						var route = specificJourneys[journey].calls.map(function (call) {
 							return call.stopPoint.location.split(',');
 						});
 
-						let markerCounter = 0;
-						for (let call of specificJourneys[journey].calls) {
+						var markerCounter = 0;
+						for (var call of specificJourneys[journey].calls) {
 							markers['marker_' + markerCounter] = L.marker(call.stopPoint.location.split(',')).addTo(mymap);
 							markers['marker_' + markerCounter].bindPopup(
 								"<p>Arrival time: " + call.arrivalTime + "</p><p>Departure time: " + call.departureTime + "</p>"
@@ -84,7 +81,7 @@ let routes = {};
 			}
 
 			function removeRoute() {
-				for (let marker in markers) {
+				for (var marker in markers) {
 					markers[marker].remove();
 				}
 
