@@ -1,27 +1,34 @@
-<%= form_for @user do |f| %>
-    <% if @user.errors.any? %>
-        <div class="error_messages">
-            <h2>Form is invalid</h2>
-            <ul>
-                <% @user.errors.full_messages.each do |message| %>
-                    <li><%= message %>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
-    <% flash[:notice] %>
+<div class="form-container">
+    <div class="form">
+        <%= form_for @user do |f| %>
+            <h1>Sign Up</h1>
 
-    <div class="field">
-        <%= f.label :email %><br />
-        <%= f.text_field :email %>
+            <% if @user.errors.any? %>
+                <div class="error_messages">
+                    <h3>Form is invalid</h3>
+                    <ul>
+                        <% @user.errors.full_messages.each do |message| %>
+                            <li><%= message %>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+
+            <% flash[:notice] %>
+
+            <div class="field">
+                <%= f.label :email %>
+                <%= f.text_field :email %>
+            </div>
+            <div class="field">
+                <%= f.label :password %>
+                <%= f.password_field :password %>
+            </div>
+            <div class="field">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation %>
+            </div>
+            <div class="actions"><%= f.submit %></div>
+        <% end %>
     </div>
-    <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password %>
-    </div>
-    <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation %>
-    </div>
-    <div class="actions"><%= f.submit %></div>
-<% end %>
+</div>

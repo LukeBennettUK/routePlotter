@@ -1,0 +1,85 @@
+.form-container {
+  // height: calc(100vh - 23.64px);
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    display: inline-block;
+    background: #73B6E6;
+    padding: 30px;
+    border-radius: 4px;
+    width: 350px;
+
+    h1 {
+      color: white;
+      text-align: center;
+    }
+
+    .field {
+      label {
+        color: white;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: none;
+      }
+    }
+
+    input[type="checkbox"] {
+      vertical-align: middle;
+    }
+
+    .actions input {
+      border-radius: 4px;
+      border: none;
+      background: white;
+      color: grey;
+      padding: 5px 20px;
+      letter-spacing: 4px;
+      margin-bottom: 5px;
+
+      &:hover {
+        background: #a8d2f0;
+        color: white;
+      }
+    }
+
+    .error_messages {
+      text-align: center;
+      background: #ff4d4d;
+      border-radius: 4px;
+      color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+
+      ul {
+        list-style: none;
+        padding: 0;
+        text-decoration: underline;
+        margin: 0;
+      }
+    }
+
+    #flash_alert {
+      
+    }
+
+    .field_with_errors {
+      label {
+        text-decoration: underline;
+        text-decoration-color: #ff4d4d;
+      }
+
+      input {
+        border: 2px solid red !important;
+      }
+    }
+  }
+}

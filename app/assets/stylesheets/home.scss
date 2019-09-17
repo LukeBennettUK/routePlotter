@@ -43,6 +43,11 @@
       padding: 5px 20px;
       letter-spacing: 4px;
       margin-bottom: 5px;
+
+      &:hover {
+        background: #a8d2f0;
+        color: white;
+      }
     }
   }
 }

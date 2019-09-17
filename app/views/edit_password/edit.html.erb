@@ -1,24 +1,30 @@
-<p><%= link_to "Back to Profile page", profile_page_path %></p>
-<h1>Profile - Edit password</h1>
+<p class="text-center"><%= link_to "Back to Profile page", profile_page_path, :class => 'standard-link' %></p>
+<div class="title-container">
+    <h2>Profile - Edit password</h2>
+</div>
 
-<%= form_for @user , :url => edit_password_path(params[:id]) do |f| %>
-    <% if @user.errors.any? %>
-        <div class="error_messages">
-            <h2>Form is invalid</h2>
-            <ul>
-                <% for message in @user.errors.full_messages %>
-                    <li><%= message %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
-    <div class="field">
-        <%= f.label :password %>
-        <%= f.password_field :password %>
+<div class="form-container">
+    <div class="form">
+        <%= form_for @user , :url => edit_password_path(params[:id]) do |f| %>
+            <% if @user.errors.any? %>
+                <div class="error_messages">
+                    <h2>Form is invalid</h2>
+                    <ul>
+                        <% for message in @user.errors.full_messages %>
+                            <li><%= message %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+            <div class="field">
+                <%= f.label :password %>
+                <%= f.password_field :password %>
+            </div>
+            <div class="field">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation %>
+            </div>
+            <div class="actions"><%= f.submit "Update Password" %></div>
+        <% end %>
     </div>
-    <div class="field">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
-    </div>
-    <div class="actions"><%= f.submit "Update Password" %></div>
-<% end %>
+</div>

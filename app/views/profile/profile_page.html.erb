@@ -1,7 +1,13 @@
-<h1>Welcome to the edit profile page</h1>
+<div class="title-container">
+  <h2>Profile</h2>
+</div>
 
-<p>Email address: <%= @user.email %></p>
+<div class="profile-info-container">
+  <div class="profile-info">
+    <p><span class="profile-label">Email address: </span><%= @user.email %></p>
 
-<p><%= link_to "Edit email address", edit_edit_email_path(@user.id) %></p>
+    <%= link_to "Edit email address", edit_edit_email_path(@user.id), :class => 'standard-link' %>
 
-<p><%= link_to "Edit password", edit_edit_password_path(@user.id) %></p>
+    <%= link_to "Edit password", edit_edit_password_path(@user.id), :class => 'standard-link' %>
+  </div>
+</div>

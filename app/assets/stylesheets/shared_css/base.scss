@@ -1,0 +1,73 @@
+.title-container {
+  text-align: center;
+  margin-bottom: 30px;
+
+  h1, h2 {
+    display: inline-block;
+    border-bottom: 5px solid lightblue;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+#user_header {
+  .user-login {
+    background: #CDDAA2;
+    padding: 5px;
+    border-radius: 4px;
+  }
+
+  a {
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  a[href="/signup"] {
+    background: #CDDAA2;
+
+    &:hover {
+      background: #a7be5b;
+    }
+  }
+}
+
+.standard-link {
+  background: #a8d2f0;
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+
+  &:hover {
+    background: #73B6E6;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.flash-container {
+  text-align: center;
+  margin: 30px;
+
+  #flash_notice,
+  #flash_alert {
+    display: inline-block;
+    padding: 10px 40px;
+    color: white;
+    border-radius: 4px;
+  }
+
+  #flash_notice {
+    background: #CDDAA2;
+  }
+
+  #flash_alert {
+    background: #ff4d4d;
+  }
+}

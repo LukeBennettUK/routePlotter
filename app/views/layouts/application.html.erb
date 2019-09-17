@@ -14,20 +14,21 @@
 		<div id="container">
 			<div id="user_header">
 			<% if current_user %>
-				Logged in as <%= current_user.email %>.
-				<%# The session_path method expects a user Id here, but it doesn't matter what is passed in in this instance as the controller action we want to call doesn't use the ID parameter %>
-				<%# method: "delete" triggers the destroy action %>
-				<%= link_to "Log Out", logout_path %> |
-				<%= link_to "Home", root_path %>
+				<span class="user-login">Logged in as <%= current_user.email %>.</span>
+				<%= link_to "Log Out", logout_path, :class => 'standard-link' %> |
+				<%= link_to "Home", root_path, :class => 'standard-link' %>
+				<%= link_to "Profile", profile_page_path, :class => 'standard-link' %>
 			<% else %>
 				<%= link_to "Sign Up", signup_path %> or
-				<%= link_to "Log In", login_path %>
+				<%= link_to "Log In", login_path, :class => 'standard-link' %>
 			<% end %>
 			</div>
 
-			<% flash.each do |name, msg| %>
-				<%= content_tag :div, msg, id: "flash_#{name}"%>
-			<% end %>
+			<div class="flash-container">
+				<% flash.each do |name, msg| %>
+					<%= content_tag :div, msg, id: "flash_#{name}"%>
+				<% end %>
+			</div>
 
 			<%= yield %>
 		</div>
