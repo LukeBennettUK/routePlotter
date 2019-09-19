@@ -35,7 +35,23 @@
 			promise.then(
 				data => requestSuccess(data),
 				error => console.log('error: ', error)
-			);
+      );
+      
+      $.ajax({
+        url: "http://data.itsfactory.fi/journeys/api/1/journeys",
+        type: 'GET',
+        dataType: 'json',
+        
+        success: requestSuccess,
+        error: function (xhr, textStatus, errorThrown) {
+          console.log('error during GET request:')
+          console.log(xhr);
+          console.log(textStatus);
+          console.log(errorThrown);
+        }
+      });
+
+
 
 			function requestSuccess(data) {
 				var journeys = data.body
