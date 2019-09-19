@@ -4,6 +4,7 @@ require_relative 'config/environment'
 
 run Rails.application
 
+require 'rack/cors'
 use Rack::Cors do
 
   # allow all origins in development
