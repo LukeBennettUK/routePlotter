@@ -11,7 +11,8 @@ Download a console emulator such as: https://cmder.net/ if you do not already ha
     * Open 'Cmder' or similar console emulator, a terminal window should automatically open
     * To navigate to the folder directory type `cd` 'space' and the folder path e.g. `cd /c/webDevelopment`
     * run: `git clone https://github.com/LukeBennettUK/routePlotter.git`
-2. Next run: `'cd routePlotter/'`
-3. Finally run `'rails server'`
+2. Next run: `cd routePlotter/`
+3. Next run: `bundle install`
+3. Finally run `rails server`
 4. Wait for the server to load
 5. Visit https://localhost:3000
