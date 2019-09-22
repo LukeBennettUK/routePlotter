@@ -13,6 +13,7 @@ Download a console emulator such as: https://cmder.net/ if you do not already ha
     * run: `git clone https://github.com/LukeBennettUK/routePlotter.git`
 2. Next run: `cd routePlotter/`
 3. Next run: `bundle install`
-3. Finally run `rails server`
-4. Wait for the server to load
-5. Visit https://localhost:3000
+4. Next run: `rails db:migrate`
+5. Finally run `rails server`
+6. Wait for the server to load
+7. Visit https://localhost:3000
