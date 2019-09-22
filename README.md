@@ -6,10 +6,9 @@ You must have git installed: https://git-scm.com/downloads and select your opera
 You must have Ruby installed: https://rubyinstaller.org/downloads/ and choose the recommended download
 Download a console emulator such as: https://cmder.net/ if you do not already have one
 
-Windows:
 1. Clone repository to local storage
     * Open a new terminal window and navigate to a directory in which you want to save the project
-    * Open 'Cmder' or similar console emulator
+    * Open 'Cmder' or similar console emulator, a terminal window should automatically open
     * To navigate to the folder directory type `cd` 'space' and the folder path e.g. `cd /c/webDevelopment`
     * run: `git clone https://github.com/LukeBennettUK/routePlotter.git`
 2. Next run: `'cd routePlotter/'`
